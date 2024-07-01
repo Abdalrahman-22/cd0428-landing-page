@@ -23,6 +23,7 @@
  * 
 */
 const navbarList = document.getElementById("navbar__list");
+const listItems = navbarList.childNodes;
 const sections = document.getElementsByTagName("section");
 
 
@@ -63,22 +64,29 @@ function buildNav() {
         li.innerHTML = `<a class="menu__link">${section.dataset.nav}</a>`
         frag.appendChild(li);
     }
+    // add active-nav class to the a element in the first li item
+    frag.firstElementChild.firstElementChild.classList.add("active-nav");
     // append the fragment to the ul
     navbarList.appendChild(frag);
 }
 
 // Add class 'active' to section when near top of viewport
 function makeActive() {
-    for (const section of sections) {
-        const box = section.getBoundingClientRect();
+    for (let i=0;i<sections.length;i++) {
+        const box = sections[i].getBoundingClientRect();
         const VALUE = 150;
         // the boundries the section should be between to be considered as active
         if (box.top <= VALUE && box.bottom >= VALUE) {
             // add active class from the active section
-            section.classList.add("active-section");
+            sections[i].classList.add("active-section");
+            // add active class for the active a in the li 
+            listItems[i].firstElementChild.classList.add("active-nav");
         } else {
-            // remove active class from the non active section
-            section.classList.remove("active-section");
+            // remove active class from the inactive section
+            sections[i].classList.remove("active-section");
+
+            // remove active class for the inactive a in the li 
+            listItems[i].firstElementChild.classList.remove("active-nav");
         }
     }
 }
