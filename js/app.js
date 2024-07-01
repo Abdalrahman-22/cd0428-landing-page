@@ -40,19 +40,34 @@ const sections = document.getElementsByTagName("section");
 */
 
 // build the nav
-function buildNav(){
-let frag = document.createDocumentFragment();
+function buildNav() {
+    // put the nav items in a fragment for better performance
+    let frag = document.createDocumentFragment();
 
-for (const section of sections) {
-    let li = document.createElement("li");
-    li.innerHTML = `<a class="menu__link">${section.dataset.nav}</a>`
-    frag.appendChild(li);
+    for (const section of sections) {
+        let li = document.createElement("li");
+        li.innerHTML = `<a class="menu__link">${section.dataset.nav}</a>`
+        frag.appendChild(li);
+    }
+    // append the fragment to the ul
+    navbarList.appendChild(frag);
 }
 
-navbarList.appendChild(frag);
-}
 // Add class 'active' to section when near top of viewport
-
+function makeActive() {
+    for (const section of sections) {
+        const box = section.getBoundingClientRect();
+        const VALUE = 150;
+        // the boundries the section should be between to be considered as active
+        if (box.top <= VALUE && box.bottom >= VALUE) {
+            // add active class from the active section
+            section.classList.add("active-section");
+        } else {
+            // remove active class from the non active section
+            section.classList.remove("active-section");
+        }
+    }
+}
 
 // Scroll to anchor ID using scrollTO event
 
@@ -64,9 +79,9 @@ navbarList.appendChild(frag);
 */
 
 // Build menu 
-    buildNav();
+buildNav();
 // Scroll to section on link click
 
 // Set sections as active
-
+document.addEventListener("scroll", makeActive);
 
