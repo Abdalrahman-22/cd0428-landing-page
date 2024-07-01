@@ -40,6 +40,7 @@ const sections = document.getElementsByTagName("section");
 */
 
 // build the nav
+function buildNav(){
 let frag = document.createDocumentFragment();
 
 for (const section of sections) {
@@ -49,7 +50,7 @@ for (const section of sections) {
 }
 
 navbarList.appendChild(frag);
-
+}
 // Add class 'active' to section when near top of viewport
 
 
@@ -63,7 +64,7 @@ navbarList.appendChild(frag);
 */
 
 // Build menu 
-
+    buildNav();
 // Scroll to section on link click
 
 // Set sections as active
