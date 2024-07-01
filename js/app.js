@@ -93,7 +93,9 @@ function makeActive() {
 
 // Scroll to anchor ID using scrollTO event
 function scroll(e) {
+    e.preventDefault()
     const { target } = e;
+    // get the id of section by teh innerHTML of the a in the li
     const id = extractNumber(target.innerHTML);
     const section = document.querySelector(`#section${id}`);
     if (section) {
