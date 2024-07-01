@@ -31,7 +31,21 @@ const sections = document.getElementsByTagName("section");
  * Start Helper Functions
  * 
 */
-
+// this function is to extract a number from a string
+function extractNumber(str) {
+    // ch:character
+    let arr = str.split("").reduce((result, ch) => {
+        // if the character is not a number keep result as it is
+        if (isNaN(parseInt(ch))) {
+            return result;
+        }
+        // if the character is a number add it to result
+        else {
+            return result + ch;
+        }
+    }, "");
+    return arr;
+}
 
 /**
  * End Helper Functions
@@ -70,7 +84,16 @@ function makeActive() {
 }
 
 // Scroll to anchor ID using scrollTO event
-
+function scroll(e) {
+    const { target } = e;
+    const id = extractNumber(target.innerHTML);
+    const section = document.querySelector(`#section${id}`);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
 
 /**
  * End Main Functions
@@ -81,6 +104,7 @@ function makeActive() {
 // Build menu 
 buildNav();
 // Scroll to section on link click
+navbarList.addEventListener("click", scroll);
 
 // Set sections as active
 document.addEventListener("scroll", makeActive);
