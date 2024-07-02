@@ -222,6 +222,26 @@ section.active-section .landing__container::after {
     }
 }
 
+/* section for scroll top */
+.scroll-top{
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
 
 /* section for responsive on small screens */
 @media (max-width: 675px) {

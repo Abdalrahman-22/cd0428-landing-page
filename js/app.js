@@ -26,6 +26,7 @@ const pageHeader = document.querySelector(".page__header");
 const navbarList = document.getElementById("navbar__list");
 const listItems = navbarList.childNodes;
 const sections = document.getElementsByTagName("section");
+const scrollTop = document.querySelector(".scroll-top");
 // this variable for holding the timer to hide the header when no scrolling
 let myTimeout;
 
@@ -121,6 +122,25 @@ function hideBar() {
     myTimeout = setTimeout(hideIt, 3000);
 }
 
+// scroll top
+function goTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show or hide scroll top based on the fold page
+function showScrollTop() {
+    if (window.scrollY > window.innerHeight) {
+        scrollTop.style.visibility = 'visible';
+        scrollTop.style.opacity = '1';
+    } else {
+        scrollTop.style.visibility = 'hidden';
+        scrollTop.style.opacity = '0';
+    }
+
+}
 /**
  * End Main Functions
  * Begin Events
@@ -138,3 +158,8 @@ document.addEventListener("scroll", makeActive);
 // Hide nav bar when there's no scrolling
 document.addEventListener("scroll", hideBar);
 
+// scroll top click event
+scrollTop.addEventListener("click", goTop);
+
+// show scrollTop div
+document.addEventListener("scroll", showScrollTop);
