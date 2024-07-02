@@ -26,5 +26,5 @@ This blueprint can be used in various real-world projects:
 
 ## Meta
 - Developed by **Abdalrahman Mohammad** based on a Udacity starter project.
-- Distributed under Udacity license. See [LICENSE](LICENSE) for more information.
+- Distributed under Udacity license. See [LICENSE](LICENSE.txt) for more information.
 - Project link: [GitHub Repository](https://github.com/Abdalrahman-22/cd0428-landing-page)
