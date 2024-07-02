@@ -28,3 +28,6 @@ This blueprint can be used in various real-world projects:
 - Developed by **Abdalrahman Mohammad** based on a Udacity starter project.
 - Distributed under Udacity license. See [LICENSE](LICENSE.txt) for more information.
 - Project link: [GitHub Repository](https://github.com/Abdalrahman-22/cd0428-landing-page)
+
+## Browse the site
+- From here: [Click](https://abdalrahman-22.github.io/cd0428-landing-page)
