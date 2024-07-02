@@ -22,9 +22,13 @@
  * Define Global Variables
  * 
 */
+const pageHeader = document.querySelector(".page__header");
 const navbarList = document.getElementById("navbar__list");
 const listItems = navbarList.childNodes;
 const sections = document.getElementsByTagName("section");
+// this variable for holding the timer to hide the header when no scrolling
+let myTimeout;
+
 
 
 /**
@@ -48,6 +52,10 @@ function extractNumber(str) {
     return arr;
 }
 
+// this function is used to hide the header
+function hideIt() {
+    pageHeader.style.transform = "translateY(-100%)";
+}
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -72,7 +80,7 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 function makeActive() {
-    for (let i=0;i<sections.length;i++) {
+    for (let i = 0; i < sections.length; i++) {
         const box = sections[i].getBoundingClientRect();
         const VALUE = 150;
         // the boundries the section should be between to be considered as active
@@ -105,6 +113,14 @@ function scroll(e) {
     }
 }
 
+// Hide nav bar
+function hideBar() {
+    pageHeader.style.transform = "translateY(0)";
+    clearTimeout(myTimeout);
+    // when there's no scroll for 3 seconds hide the header
+    myTimeout = setTimeout(hideIt, 3000);
+}
+
 /**
  * End Main Functions
  * Begin Events
@@ -118,4 +134,7 @@ navbarList.addEventListener("click", scroll);
 
 // Set sections as active
 document.addEventListener("scroll", makeActive);
+
+// Hide nav bar when there's no scrolling
+document.addEventListener("scroll", hideBar);
 
