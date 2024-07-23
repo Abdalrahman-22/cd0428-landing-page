@@ -30,4 +30,4 @@ This blueprint can be used in various real-world projects:
 - Project link: [GitHub Repository](https://github.com/Abdalrahman-22/cd0428-landing-page)
 
 ## Browse the site
-- From here: [Click](https://abdalrahman-22.github.io/cd0428-landing-page)
+- From here: [Click](https://abdalrahmanMohammad.github.io/cd0428-landing-page)
